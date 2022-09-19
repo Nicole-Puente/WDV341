@@ -16,6 +16,8 @@
 <h2> Nicole Puente</h2>
 <h3><a href="../index.html">Home</a></h3>
 
+<p><a href="2-1SetupGitCodeRepository.html">2-1 Git Terms</a></p>
+
 
 
 
