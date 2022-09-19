@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/index_style.css">
+<link rel="stylesheet" href="../css/index_style.css">
 <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Quicksand:wght@300;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 
 <h1> WDV341 Intro PHP Homework Page</h1>
 <h2> Nicole Puente</h2>
-<h3><a href="index.html">Home</a></h3>
+<h3><a href="../index.html">Home</a></h3>
 
 
 
