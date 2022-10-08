@@ -4,6 +4,7 @@
     // NOTE! This connection file is specific to your local host application.
     // IT WILL NOT work on your hosting account.
     // should also not be in your git repo
+    
 
     $host = "localhost";        // most servers default to localhost
     $database = "wdv341";       // target database to connect with
