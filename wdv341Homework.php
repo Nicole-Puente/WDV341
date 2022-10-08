@@ -16,8 +16,9 @@
 <h2> Nicole Puente</h2>
 <h3><a href="../index.html">Home</a></h3>
 
-<p><a href="2-1SetupGitCodeRepository.html">2-1 Git Terms</a></p>
-
+<p><a href="2-1SetupGitCodeRepository.html">2-1: Git Terms</a></p>
+<p><a href="3-1PHPBasics.php">3-1: PHP Basics</p>
+<p><a href="5-1HTMLFormProcessor.html">5-1: HTML Form Processor</p>
 
 
 
