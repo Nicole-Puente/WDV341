@@ -5,9 +5,9 @@
         3. Prepare your statement
         4. Bind parameters, if any
         5. Execute the statement
+        5. Get the data from the result set within the statement object
     */
-
-    
+ 
     require 'database/dbConnect.php';
 
     $sql = "SELECT events_name, events_description, events_presenter, events_date FROM wdv341_events WHERE events_name='Database Concepts' ORDER BY events_name";       // puts the sql command in a variable. 

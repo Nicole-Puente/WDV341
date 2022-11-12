@@ -18,6 +18,7 @@
 
 <p><a href="2-1SetupGitCodeRepository.html">2-1: Git Terms</a></p>
 <p><a href="3-1PHPBasics.php">3-1: PHP Basics</p>
+<p><a href="4-1Functions.php">4-1: Functions</p>
 <p><a href="5-1HTMLFormProcessor.html">5-1: HTML Form Processor</p>
 
 
