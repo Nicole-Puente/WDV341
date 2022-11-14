@@ -20,6 +20,8 @@
 <p><a href="3-1PHPBasics.php">3-1: PHP Basics</p>
 <p><a href="4-1Functions.php">4-1: Functions</p>
 <p><a href="5-1HTMLFormProcessor.html">5-1: HTML Form Processor</p>
+<p><a href="7-1SelectEvents.php">7-1: Select Events</p>
+<p><a href="7-2SelectOneEvent.php">7-2: Select One Event</p>
 
 
 
