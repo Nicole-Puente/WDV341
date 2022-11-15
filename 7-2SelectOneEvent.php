@@ -16,7 +16,6 @@
     $stmt->execute();
 
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
