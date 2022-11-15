@@ -1,7 +1,6 @@
 <?php
 
     /*algorithm to do a PDO prepared statement
-    
         1. Connect to the database
         2. Write your SQL command
         3. Prepare Statement
