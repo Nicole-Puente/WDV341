@@ -18,8 +18,6 @@
 
     $stmt->setFetchMode(PDO::FETCH_ASSOC);  //return an associate array from result set
 
-
-
 ?>
 
 <!doctype html>
@@ -43,6 +41,7 @@
 
 <body>
     <header>
+
         <h1>DMACC Electronics Store!</h1>
         <p>Products for your Home and School Office</p>
     </header>
