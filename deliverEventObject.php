@@ -4,11 +4,9 @@
     // into a PHP object. Then format the PHP object into a JSON formatted object
     // and echo the JSON object back to the client.
 
-
     // 1. Get our data from the database
     // 2. Create a PHP object from the data
     // 3. convert the PHP object into a JSON formatted object
-
 
     /* Algorith to do a PDO prepared statement:
         1. Connect to the database
@@ -24,7 +22,6 @@
     require 'database/dbConnect.php';
 
     $sql = "SELECT events_id, events_name, events_description, events_presenter, events_date, events_time FROM wdv341_events WHERE events_id=:eventId";
-    // echo $sql;
 
     $stmt = $conn->prepare($sql); // prepare statement
 
@@ -43,7 +40,6 @@
         public $events_presenter;
         public $events_date;
         public $events_time;
-
         
         // constructor methods (if any)
         // methods
