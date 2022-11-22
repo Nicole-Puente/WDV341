@@ -10,7 +10,7 @@
  
     require 'database/dbConnect.php';
 
-    $sql = "SELECT events_name, events_description, events_presenter, events_date FROM wdv341_events WHERE events_name='Database Concepts' ORDER BY events_name";       // puts the sql command in a variable. 
+    $sql = "SELECT events_name, events_description, events_presenter, events_date FROM wdv341_events ORDER BY events_name";       // puts the sql command in a variable. 
 
     $stmt = $conn->prepare($sql);                         // prepare your statement   
 
