@@ -18,6 +18,8 @@
 
     $stmt->setFetchMode(PDO::FETCH_ASSOC);  //return an associate array from result set
 
+
+
 ?>
 
 <!doctype html>
@@ -41,7 +43,6 @@
 
 <body>
     <header>
-
         <h1>DMACC Electronics Store!</h1>
         <p>Products for your Home and School Office</p>
     </header>
@@ -72,25 +73,12 @@
                 <p class="productDesc"><?php echo $row['product_description'];?></p>
                 <p class="productPrice">$<?php echo $row['product_price'];?></p>
                 <!-- The productStatus element should only be displayed if there is product_status data in the record -->
-                <?php
-                        if($row['product_status'] != "") {
-                    ?>
-                        <p class="productStatus">
-                            <?php echo $row['product_status'];
-                        ?>
-                        </p>
-                    <?php
-                        }
-                    ?>            
-                    <p class="productInventory <?php 
-                        if($row['product_inStock'] <= 10) {
-                            echo "lowInventory";
-                        }
-                        ?>"><?php echo $row['product_inStock'];?></p>
-                </div>
+                <p class="productStatus"><?php echo $row['product_status'];?></p>            
+                <p class="productInventory"><?php echo $row['product_inStock'];?></p>
+            </div>
         <?php
-            }
-        ?>
+            } 
+        ?> 
      </section>
 
 </body>
