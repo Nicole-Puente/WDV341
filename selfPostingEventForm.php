@@ -125,11 +125,11 @@ if(isset($_POST["submit"])){
                     </p>
                     <p>
                         <label for="events-date">Event Date:</label> 
-                        <input type="text" name="events_date" id="events-date" value="<?php echo date("m-d-Y"); ?>" />
+                        <input type="text" name="events_date" id="events-date" />
                     </p>
                     <p>
                         <label for="events-time">Event Time:</label> 
-                        <input type="text" name="events_time" id="events-time" value="<?php echo date("H:i"); ?>" />
+                        <input type="text" name="events_time" id="events-time"  />
                     </p>                                        
                     <p>
                         <input type="submit" name="submit" id="button" value="Submit" />
