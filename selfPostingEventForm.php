@@ -24,7 +24,7 @@ if(isset($_POST["submit"])){
     $eventsTime = $_POST['events_time'];
 
     $eventsDate = date('Y-m-d', strtotime($eventsDate));
-    $eventsDate = date('H:i', strtotime($eventsTime));
+    $eventsTime = date('H:i', strtotime($eventsTime));
 
     require_once('database/dbConnect.php');
 
@@ -37,7 +37,7 @@ if(isset($_POST["submit"])){
     $stmt->bindParam(':eventsDescription',$eventsDescription);
     $stmt->bindParam(':eventsPresenter',$eventsPresenter);
     $stmt->bindParam(':eventsDate',$eventsDate);
-    $stmt->bindParam(':eventsTime',$eventsTime);        
+    $stmt->bindParam(':eventsTime',$eventsTime);    
 
     $stmt->execute();   
     
@@ -57,6 +57,7 @@ if(isset($_POST["submit"])){
 
     <title>WDV 341 Intro PHP - Self Posting Input an Event Form</title>
     <style>
+
         form {
             display:  flex;
             flex-direction:    column;
@@ -124,11 +125,11 @@ if(isset($_POST["submit"])){
                     </p>
                     <p>
                         <label for="events-date">Event Date:</label> 
-                        <input type="text" name="events_date" id="events-date" />
+                        <input type="text" name="events_date" id="events-date" value="<?php echo date("m-d-Y"); ?>" />
                     </p>
                     <p>
                         <label for="events-time">Event Time:</label> 
-                        <input type="text" name="events_time" id="events-time" />
+                        <input type="text" name="events_time" id="events-time" value="<?php echo date("H:i"); ?>" />
                     </p>                                        
                     <p>
                         <input type="submit" name="submit" id="button" value="Submit" />
