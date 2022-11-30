@@ -38,7 +38,6 @@ if(isset($_POST["submit"])){
     $stmt->bindParam(':eventsDate',$eventsDate);
     $stmt->bindParam(':eventsTime',$eventsTime); 
     
-
     $stmt->execute();   
     
     $dataProcessed = true;
@@ -68,6 +67,7 @@ if(isset($_POST["submit"])){
             border:5px solid #FD4D0C;
             border-radius:10px;
         }
+
         body {
             font-family: 'Balsamiq Sans', cursive;
             font-size: 20px;
@@ -89,13 +89,11 @@ if(isset($_POST["submit"])){
             font-family: 'Balsamiq Sans', cursive;
         }
 
-
     </style>
 
     </head>
 
     <body>
-
 
         <?php
         if($dataProcessed){ 
@@ -113,7 +111,6 @@ if(isset($_POST["submit"])){
             <div>
                 <legend>Event Signup Page!</legend>
              </div>
-  
 
                 <form id="event-form" name="event_form" method="post" action="selfPostingEventForm.php">
 
