@@ -26,9 +26,7 @@ if(isset($_POST["submit"])){
     $eventsDate = date('Y-m-d', strtotime($eventsDate));
     $eventsTime = date('H:i', strtotime($eventsTime));
 
-
     require_once('database/dbConnect.php');
-
     $sql = "INSERT INTO wdv341_events (events_name, events_description, events_presenter, events_date, events_time)
     VALUES (:eventsName, :eventsDescription, :eventsPresenter, :eventsDate, :eventsTime";
 
