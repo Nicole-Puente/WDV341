@@ -1,0 +1,65 @@
+
+
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="css/index_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Quicksand:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Form with Email</title>
+
+
+</head>
+
+<body>
+
+    <form method="post" action="formHandler.php">
+        <div>
+          <legend>Contact Us!</legend>
+        </div>
+  
+        <fieldset>
+  
+        <div class="flex-form">
+          <label>Contact Name</label>
+          <input id="contact_name" name="contact_name" type="text">
+        </div>
+  
+        <div class="flex-form">
+          <label>Email Address</label>
+          <input id="email" name="email" type="text" placeholder="name@anywhere.com">
+        </div>
+        </fieldset>
+  
+      <fieldset>
+      <div>
+        <label for="contact_reason"> Contact Reason:</label>
+             <select name="contact_reason">
+                 <option value="General Information">General Information</option>
+                 <option value="Web Design">Web Design</option>
+                 <option value="Freelance">Freelance</option>
+                 <option value="Code Design">Code Design</option>
+             </select>
+      </div>	
+      
+      </fieldset>
+  
+        <fieldset>
+        <div>
+            <label for="subject">Send Message</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        </div>
+        </fieldset>
+  
+        <div>
+          <input type="submit" id="button" name="button" value="Submit">
+          <input type="reset" id="button" name="button" value="Reset">
+        </div>
+  
+        </form>
+</body>
+
+</html>
