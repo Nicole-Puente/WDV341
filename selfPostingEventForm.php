@@ -61,7 +61,7 @@ if(isset($_POST["submit"])){
         form {
             display:  flex;
             flex-direction:    column;
-            background-color:#dae1e7;;
+            background-color:#dae1e7;
             width:65%;
             padding:0.5em;
             margin:1.5em auto;
