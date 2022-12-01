@@ -16,7 +16,6 @@ if(isset($_POST["submit"])){
     6. Get the data from the result-set within the statement object
     */
 
-
     $eventsName = $_POST['events_name'];
     $eventsDescription = $_POST['events_description'];
     $eventsPresenter = $_POST['events_presenter'];
@@ -30,20 +29,25 @@ if(isset($_POST["submit"])){
     $sql = "INSERT INTO wdv341_events (events_name, events_description, events_presenter, events_date, events_time)
     VALUES (:eventsName, :eventsDescription, :eventsPresenter, :eventsDate, :eventsTime";
 
-    $stmt = $conn->prepare($sql);
+    try {
+        $stmt = $conn->prepare($sql);
 
-    $stmt->bindParam(':eventsName',$eventsName);
-    $stmt->bindParam(':eventsDescription',$eventsDescription);
-    $stmt->bindParam(':eventsPresenter',$eventsPresenter);
-    $stmt->bindParam(':eventsDate',$eventsDate);
-    $stmt->bindParam(':eventsTime',$eventsTime); 
-    
-    $stmt->execute();   
-    
+        $stmt->bindParam(':eventsName',$eventsName);
+        $stmt->bindParam(':eventsDescription',$eventsDescription);
+        $stmt->bindParam(':eventsPresenter',$eventsPresenter);
+        $stmt->bindParam(':eventsDate',$eventsDate);
+        $stmt->bindParam(':eventsTime',$eventsTime); 
+        
+        $stmt->execute(); 
+    }
+    catch(PDOException $e){
+        //very basic error handling-- if an error -- print message
+        echo "Connection failed: " . $e->getMessage();
+    }
+
     $dataProcessed = true;
 }
 
-    //display the form to the user so they can enter their data and hit submit
 ?>
     <!DOCTYPE html>
     <head>
