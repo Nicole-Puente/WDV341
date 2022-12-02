@@ -25,6 +25,7 @@ require_once('functions.php');
         <p>Form Handler Result Page - Code Example</p>
     </header>
 
+    
     <section>
         <?php 
         // This is where you'll check if the form was submitted and show a response, and hide the form
