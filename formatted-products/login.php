@@ -87,6 +87,7 @@ else{
     ?>
         <section><!-- Login Form - display until successful login -->
             <form method="post" action="login.php">
+                
                 <h3>LOGIN FORM</h3>
                 <?php
                 if($displayError){
