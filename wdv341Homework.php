@@ -28,8 +28,8 @@
 <p><a href="eventsForm.php">12-1: Create a form page for the events</p>
 <p><a href="EventsFolder/login.php">13-2 and 13-3 Log in Log out</p>
 <p><a href="signInSignOut/login.php">14-1: Protect Dynamic Pages</p>
-
 <p><a href="ContactFormProject/contactEmailForm.html">Contact Form Project </p>
+<p><a href="Portfolio/homePage.php">Portfolio (Final project, work in progress)</p>
 
 
 
