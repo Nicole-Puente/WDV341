@@ -26,8 +26,8 @@ if(isset($_POST["submit"])){
     $eventsTime = date('H:i', strtotime($eventsTime));
 
     require_once('database/dbConnect.php');
-    $sql = "INSERT INTO wdv341_events (events_name, events_description, events_presenter, events_date, events_time)
-    VALUES (:eventsName, :eventsDescription, :eventsPresenter, :eventsDate, :eventsTime";
+    $sql = "INSERT INTO wdv341_events (events_name, events_description, events_presenter, events_date, events_time, events_date_inserted, events_date_updated)
+    VALUES (:eventsName, :eventsDescription, :eventsPresenter, :eventsDate, :eventsTime, NOW(), NOW())";
 
     try {
         $stmt = $conn->prepare($sql);
@@ -57,6 +57,14 @@ if(isset($_POST["submit"])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lc-FEsjAAAAAPX8-GxjdmRERejof4LBOvLOiil4"></script>
+    <script>
+    grecaptcha.enterprise.ready(function() {
+    grecaptcha.enterprise.execute('6Lc-FEsjAAAAAPX8-GxjdmRERejof4LBOvLOiil4', {action: 'login'}).then(function(token) {
+       ...
+    });
+    });
+    </script>
 
     <title>WDV 341 Intro PHP - Self Posting Input an Event Form</title>
     <style>
