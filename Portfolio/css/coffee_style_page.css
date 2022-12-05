@@ -54,19 +54,19 @@ body{background-color: #e4d5cc;
 }
 
 form {
-			display:  flex;
-			flex-direction:    column;
-			background-color:#8f755f;;
-			width:90%;
-			padding:0.5em;
-			margin:1.5em auto;
-			border:thin solid #37251b;
-			border-radius:10px;
+    display:  flex;
+    flex-direction:    column;
+    background-color:#8f755f;
+    width:65%;
+    padding:0.5em;
+    margin:1.5em auto;
+    border:5px solid #37251b;
+    border-radius:10px;
 }
 
 legend{
-    color:#d2c1b0;
-    text-align: left;
+    color:#341509;
+    text-align: Center;
     word-spacing: 1px;
     letter-spacing: 1px;
     font-family: 'Balsamiq Sans', cursive;
@@ -77,51 +77,60 @@ legend{
     margin-bottom: 0.3em;
 }
 
-  .flex-form label {
-  					text-align: right;
-  					flex-basis: 8em;
-  					margin-top: 0.5em;
-  					margin-right:0.5em;
-  				}
+.flex-form label {
+              text-align: center;
+              flex-basis: 8em;
+              margin-top: 0.5em;
+              margin-right:0.5em;
+}
 
-  .flex-form input, select, textarea {
-  					flex:.7;
-  					}
+.flex-form input, select, textarea {
+              flex:.7;
+}
 
-    .flex-radio {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin-left: 1.8em;
-            margin-top: 1.2em;
-            margin-bottom: 1.2em;
-            }
+.flex-radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 1.8em;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
 
-  	.flex-radio  label {
-  			margin-right:1.8em;}
+.flex-radio  label {
+      margin-right:1.8em;}
 
-	.flex-buttons  {
-				display:flex;
+.flex-buttons  {
+        display:flex;
         justify-content: center;
-    		margin: 10px;
-				}
+    margin: 10px;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #341509;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
 
 textarea {
-		height:100px;
-		}
-
+height:100px;
+}
 
 fieldset {
-      display: center;
-			flex-direction: column;
-			margin:0.5em;
-			padding:0.5em;
-			}
+display: center;
+    flex-direction: column;
+    margin:0.5em;
+    padding:0.5em;
+    }
 
 section  {
-			padding:0.5em;
-			}
-
+    padding:0.5em;
+    }
 .footer {
 	background-color: #e9ded6;
 }
@@ -145,3 +154,4 @@ section  {
     right: 0;
     top: 0;
   }
+}

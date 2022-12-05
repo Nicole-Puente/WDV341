@@ -1,3 +1,9 @@
+<?php 
+
+$year = date("Y"); 
+
+?> 
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,12 +18,13 @@
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 			 <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
        <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
-       <link rel="stylesheet" href="css/coffee_style.css">
+       <link rel="stylesheet" href="css/coffee_style_page.css">
 
   <style>
       .jumbotron{
         background-color: #dbc1ac;
         text-align: center;
+        font-family: 'Karla', sans-serif;
       }
       .carousel-inner > .item > img {
         width:100%;
@@ -47,31 +54,30 @@
   </div>
 
   <nav id="main-nav" class="navbar navbar-expand-sm navbar-dark py-0 fixed-top">
-      <a class="navbar-brand" href="#"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
-              <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="menu.html">Menu</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="events.html">Events</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
-              </li>
-
-          </ul>
-      </div>
-  </nav>
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="homePage.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.php">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="menu.php">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="events.php">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contactEmailForm.php">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
   <section class="container-fluid pt-5">
          <div class="row">
@@ -114,28 +120,16 @@
          </div>
      </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 offset-sm-3">
-                    <p class="text-center footer-text"> Copyright &copy; 2021 All Rights Reserved. Savanna's Coffee House.</p>
-                  <div class="social">
-                    <p>
-                      <a href="https://www.facebook.com/" target="_blank">
-                      <img src="images/facebook.svg" width="50" height="50" alt="facebook icon"></a>
-                      <a href="https://www.twitter.com/" target="_blank">
-                      <img src="images/twitter.svg" width="50" height="50" alt="twitter icon"></a>
-                      <a href="https://www.instagram.com/" target="_blank">
-                      <img src="images/instagram.svg" width="50" height="50" alt="instagram icon"></a>
-                      <a href="https://www.pinterest.com/" target="_blank">
-                      <img src="images/pinterest.svg" width="50" height="50" alt="pinterest icon"></a>
-                    </p>
-                    <p><a href="#top"> Back to top of page</a></p>
-                </div>
-            </div>
-        </div>
-        </div>
-    </footer>
+     <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-6 offset-sm-3">
+                  <p class="text-center footer-text"> Copyright &copy; <?php echo $year;?> All Rights Reserved. Savanna's Coffee House.</p>
+                  <p style="text-align:center;"><a href="#top"> Back to top of page</a></p>
+          </div>
+      </div>
+      </div>
+  </footer>
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
