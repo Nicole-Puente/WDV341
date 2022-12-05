@@ -28,8 +28,8 @@ if(isset($_POST["submit"])){
 
     require_once('database/dbConnect.php');
 
-    $sql = "INSERT INTO wdv341_events (events_name, events_description, events_presenter, events_date, events_time)
-    VALUES (:eventsName, :eventsDescription, :eventsPresenter, :eventsDate, :eventsTime)";
+    $sql = "INSERT INTO wdv341_events (events_name, events_description, events_presenter, events_date, events_time, events_date_inserted, events_date_updated)
+    VALUES (:eventsName, :eventsDescription, :eventsPresenter, :eventsDate, :eventsTime, NOW(), NOW())";
 
     $stmt = $conn->prepare($sql);
 
