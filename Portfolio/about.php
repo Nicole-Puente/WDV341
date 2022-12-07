@@ -7,7 +7,6 @@ $year = date("Y");
 <html lang="en">
   <head>
     <title>Savanna's Coffee House Home Page</title>
-
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Savanna's Coffee House Homepage">

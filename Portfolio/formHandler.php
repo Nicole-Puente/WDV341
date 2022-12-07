@@ -38,11 +38,9 @@ $year = date("Y");
     </html>';
 
     $headers = "From: niccipuente@nicolepuente.name" . "\r\n";
-    //$headers = "MIME-Version: 1.0" . "\r\n"; 
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
     if(mail($to, $subject, $message, $headers) ){
-        
     }
     else {
         echo "email failed";
@@ -91,7 +89,6 @@ $year = date("Y");
     $headers = "From:" . $_POST['email'] . "\r\n";
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "CC:" . $_POST['email'] . "\r\n";
 
     if(mail($to, $subject, $message, $headers) ){
         
@@ -104,6 +101,12 @@ $year = date("Y");
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        h1.ex1 {
+            margin-top: 100px;
+            text-align: Center;
+        }
+    </style>
 <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Savanna's Coffee House Homepage">
@@ -119,7 +122,7 @@ $year = date("Y");
 
     </head>
   <body>
-
+    <div id="page-container">
   <nav id="main-nav" class="navbar navbar-expand-sm navbar-dark py-0 fixed-top">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -145,16 +148,17 @@ $year = date("Y");
         </ul>
     </div>
 </nav>
+<main>
+    <h1 class="ex1">A confirmation email has been sent, Thank you!</h1>    
+</main>
 
-<h1 style="justify-content: center;">A confirmation email has been sent!</h1>
-
+</div>
 <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 offset-sm-3">
                     <p class="text-center footer-text"> Copyright &copy; <?php echo $year;?> All Rights Reserved. Savanna's Coffee House.</p>
             </div>
-        </div>
         </div>
     </footer>
 
@@ -163,4 +167,5 @@ $year = date("Y");
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </head>
+</div>
 <body>

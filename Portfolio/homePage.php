@@ -1,14 +1,11 @@
 <?php 
-
-$year = date("Y"); 
-
+    $year = date("Y"); //this will show current year in the copyright 
 ?> 
 
 <!doctype html>
 <html lang="en">
   <head>
     <title>Savanna's Coffee House Home Page</title>
-      <!-- Nicole Puente, December 2, 2021 -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Savanna's Coffee House Homepage">
@@ -104,7 +101,7 @@ $year = date("Y");
 </div>
 
     <main>
-      <div class="container">
+      <div class="page-container">
         <div class="row">
         <div class="col">
                 <h3 class="h3">Feeling hungry?</h3>
@@ -127,8 +124,8 @@ $year = date("Y");
                   <p class="p">Please check out our Events link above for more details and check back, it's always changing!</p>
                <img src="images/musician.jpg" class="rounded foat-right" width="320" height="179" alt="Man playing guitar and singing into microphone" />
         </div>
-      </div>
-    </div>
+      </div> 
+    </div> 
     </main>
 
     <footer class="footer">
@@ -137,8 +134,8 @@ $year = date("Y");
                 <div class="col-sm-6 offset-sm-3">
                     <p class="text-center footer-text"> Copyright &copy; <?php echo $year;?> All Rights Reserved. Savanna's Coffee House.</p>
                     <p style="text-align:center;"><a href="#top"> Back to top of page</a></p>
-            </div>
-        </div>
+                </div>
+          </div>
         </div>
     </footer>
 

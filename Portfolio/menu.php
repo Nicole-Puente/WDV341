@@ -1,13 +1,29 @@
 <?php 
+    /* Algorith to do a PDO prepared statement:
+        1. Connect to the database
+        2. Write SQL command
+        3. Prepare your statement
+        4. Bind parameters, if any
+        5. Execute the statement
+        5. Get the data from the result set within the statement object
+    */
+ 
+    require_once('../database/dbConnect.php'); //confirmed connected 
 
-$year = date("Y"); 
+    $sql = "SELECT menu_item_name, menu_item_price, menu_item_description 
+            FROM wdv341_coffeehouse_menu 
+            ORDER BY menu_item_name"; //sql command
+    $stmt = $conn->prepare($sql); //prepare statement
+    $stmt->execute(); //execute 
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);  //return an associate array from result set
+    
+    $year = date("Y"); //this will show current year in the copyright 
 
 ?> 
 <!doctype html>
 <html lang="en">
   <head>
     <title>Savanna's Coffee House Menu Page</title>
-      <!-- Nicole Puente, December 2, 2021 -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Savanna's Coffee House Menu">
@@ -31,13 +47,35 @@ $year = date("Y");
         height:100%;
       }
 
-  @media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
+    @media screen and (max-width: 600px) {
+        .topnav a:not(:first-child) {display: none;}
+        .topnav a.icon {
+        float: right;
+        display: block;
     }
   }
+    .foodItems {
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        }
+    .itemName {
+        font-size: px;
+        text-align: center;
+        font-weight: bold;
+        }
+    .itemPrice {
+        font-size: 15px;
+        text-align: center;
+        font-weight: bold;
+        }
+    .productDesc {
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        }            
+
+
 
   </style>
 
@@ -132,63 +170,23 @@ $year = date("Y");
             <h3>SANDWICHES</h3>
         </div>
 
-        <div class="col-12 text-center">
-            <h4>Grilled Vegetable Panini</h4>
-                <img src="images/veg_panini.jpg" class="rounded" width="300" height="225" alt="grilled vegetable panini" />
-            <p>
-                Tomato, onion, cucumber, romaine lettuce, sprouts, muenster cheese & basil pesto served grilled on multigrain panini bread (make it a wrap for FREE)
-            </p>
-            <h4>$6.99</h4>
-        </div>
-
-        <div class="col-12 text-center mt-5">
-            <h4>East Street Chicken</h4>
-            <p>
-                Our FAMOUS chicken salad topped with swiss cheese, artisan leaf lettuce, ripe tomato & served on a croissant
-            </p>
-            <h4>$6.99</h4>
-        </div>
-
-        <div class="col-12 text-center mt-5">
-            <h4>Black Russian Reuben</h4>
-            <p>
-                Toasted black Russian bagel filled with pastrami, swiss cheese, sauerkraut & thousand island dressing
-            </p>
-            <h4>$6.99</h4>
-        </div>
-
-        <div class="col-12 text-center mt-5">
-            <h4>Key City Ham Panini</h4>
-            <p>
-                Ham, smoked gouda cheese, sliced apple, onion & sweet chutney served grilled on multigrain panini bread
-            </p>
-            <h4>$6.99</h4>
-        </div>
-
-        <div class="col-12 text-center mt-5">
-            <h4>Black Bean Burger</h4>
-            <p>
-                Southwest black bean garden burger topped with cheddar cheese, lettuce, tomato, onion & southwest ranch dressing on a grilled ciabatta square
-            </p>
-            <h4>$6.99</h4>
-        </div>
-
-        <div class="col-12 text-center mt-5">
-            <h4>Panini Italiano</h4>
-            <p>
-                Fresh mozzarella, ripe tomatoes, basil pesto & balsamic glaze grilled on multigrain panini bread
-            </p>
-            <h4>$6.99</h4>
-        </div>
-
-        <div class="col-12 text-center mt-5">
-            <h4>The Grilled Tuna Salad Panini</h4>
-            <p>
-                House tuna salad, sprouts & cheddar cheese grilled on multigrain panini bread
-            </p>
-            <h4>$6.99</h4>
-            <hr class="mt-5 mb-0">
-        </div>
+        <?php
+            while($row = $stmt->fetch()) {
+                echo "<div class='foodItems'>";
+                echo $row['menu_item_name'];
+                echo "</div>";
+                echo "<div>";
+                echo $row['menu_item_price'];
+                echo "</div>";
+                echo "<div>";
+                echo $row['menu_item_description'];
+                echo "</div>";
+                echo "<div>";
+                echo "</div>";
+                echo"\r\n";
+            }
+        
+        ?>
 
         <div class="col-12 my-4 text-center">
             <h3>SOUPS</h3>
