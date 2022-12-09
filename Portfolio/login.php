@@ -51,7 +51,7 @@ else{
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Savanna's Coffee House Events Page</title>
+    <title>Savanna's Coffee Login Page</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Savanna's Coffee House Homepage">
@@ -97,10 +97,6 @@ else{
     <div id="banner"><img src="images/coffee_banner1.jpg" alt="coffee banner"></div>
   </header>
 
-  <div class="jumbotron">
-    <h1>Administration Page</h1>
-        <p class="h6">(This is a fictitious website project for educational purposes only)</p>
-  </div>
 
   <nav id="main-nav" class="navbar navbar-expand-sm navbar-dark py-0 fixed-top">
     <a class="navbar-brand" href="#"></a>
@@ -134,6 +130,11 @@ else{
     <?php
         if($validSignon){
     ?>
+
+        <div class="jumbotron">
+            <h1>Admin Page</h1>
+            <p class="h6">(This is a fictitious website project for educational purposes only)</p>
+        </div>
             <section>
                 <h3>Welcome back, <?php echo $inUsername; ?>!</h3>
                 <ul>
@@ -149,7 +150,6 @@ else{
     ?>
         <section>
             <form method="post" action="login.php">
-                <h3>LOGIN FORM</h3>
                 <?php
                 if($displayError){
                 ?>
@@ -157,6 +157,7 @@ else{
                 <?php
                 }
                 ?>
+                <h1 style="text-align:center">Login Page</h1>
                 <p>
                     <label for="username">Username:</label>
                     <input type="text" name="username" id="username" placeholder="Username">
@@ -174,17 +175,16 @@ else{
     <?php
         }
     ?>
-     <footer class="footer">
-      <div class="container">
-          <div class="row">
-              <div class="col-sm-6 offset-sm-3">
-                  <p class="text-center footer-text"> Copyright &copy; <?php echo $year;?> All Rights Reserved. Savanna's Coffee House.</p>               
-                  <p style="text-align:center;"><a href="#top"> Back to top of page</a></p>
-          </div>
-      </div>
-      </div>
-  </footer>
 
+<footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 offset-sm-3">
+                    <p class="text-center footer-text"> Copyright &copy; <?php echo $year;?> All Rights Reserved. Savanna's Coffee House.</p>
+                    <p style="text-align:center"><a href="#top"> Back to top of page</a></p>
+            </div>
+        </div>
+</footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
