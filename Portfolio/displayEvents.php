@@ -17,7 +17,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Savanna's Coffee House Home Page</title>
+    <title>Savanna's Coffeehouse View All Events Page</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Savanna's Coffee House Homepage">
@@ -43,6 +43,39 @@
         width:100%;
         height:100%;
       }
+
+
+        form {
+            display:  flex;
+            flex-direction:    column;
+            background-color:#9bb0c2;
+            width:65%;
+            padding:0.5em;
+            margin:1.5em auto;
+            border:5px solid #e4d5cc;
+            border-radius:10px;
+        }
+
+        body {
+            font-family: 'Balsamiq Sans', cursive;
+            font-size: 20px;
+            background-color: white;
+            text-align: center;
+        }
+
+        legend{
+            color:	#50677a;
+            text-align: Center;
+            font-size: 45px;
+            font-family: 'Balsamiq Sans', cursive;
+        }
+
+        div{
+            color:	#d94914;
+            text-align: Center;
+            font-size: 35px;
+            font-family: 'Balsamiq Sans', cursive;
+        }
 
 
   </style>
