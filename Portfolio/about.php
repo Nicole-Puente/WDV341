@@ -74,6 +74,9 @@ $year = date("Y");
             <li class="nav-item">
                 <a class="nav-link" href="contactEmailForm.php">Contact</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Login</a>
+            </li>
         </ul>
     </div>
 </nav>

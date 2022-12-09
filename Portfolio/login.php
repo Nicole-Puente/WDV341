@@ -1,25 +1,53 @@
-<?php 
-    /* Algorith to do a PDO prepared statement:
-        1. Connect to the database
-        2. Write SQL command
-        3. Prepare your statement
-        4. Bind parameters, if any
-        5. Execute the statement
-        5. Get the data from the result set within the statement object
-    */
- 
-    require_once('../database/dbConnect.php'); //confirmed connected 
+<?php
+session_start();
 
-    $sql = "SELECT coffeeHouse_event_title, coffeeHouse_event_image, coffeeHouse_event_date, coffeeHouse_event_time, coffeeHouse_event_description
-            FROM wdv341_coffeehouse_events"; //sql command
-    $stmt = $conn->prepare($sql); //prepare statement
-    $stmt->execute(); //execute 
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);  //return an associate array from result set
+$validSignon = false;       
+$displayError = false;      
+$year = date("Y"); 
 
-    $year = date("Y"); 
+if( isset($_SESSION['validUser']) && $_SESSION['validUser'] == 'yes'){
+    $validSignon = true;  
+    $inUsername = $_SESSION['inUsername'];         
+}
+else{
+    if(isset($_POST["submit"])){
 
-?> 
+        $inUsername = $_POST['username'];
+        $inPassword = $_POST['password'];
 
+        try{
+            require_once('../database/dbConnect.php'); //connect to database
+
+            $sql = "SELECT coffeeHouse_user_name, coffeeHouse_user_pword from wdv341_coffeehouse_user ";
+            $sql .= "WHERE coffeeHouse_user_name = :acctUsername and coffeeHouse_user_pword = :acctPassword";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindParam(':acctUsername', $inUsername);
+            $stmt->bindParam(':acctPassword', $inPassword);
+
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);    
+
+            $row = $stmt->fetch();
+
+            if( isset($row['coffeeHouse_user_name']) ){
+                $validSignon = true;                
+                $_SESSION['validUser'] = "yes";   
+                $_SESSION['inUsername'] = $inUsername;  
+
+            }
+            else{
+                $displayError = true;     
+            }
+        }
+        catch(PDOException $e){
+            echo "Connection failed: " . $e->getMessage();
+        }
+    }
+}
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -70,7 +98,7 @@
   </header>
 
   <div class="jumbotron">
-    <h1>Savanna's Upcoming Events:</h1>
+    <h1>Administration Page</h1>
         <p class="h6">(This is a fictitious website project for educational purposes only)</p>
   </div>
 
@@ -103,33 +131,49 @@
     </div>
 </nav>
 
-
-<?php
-  while($row = $stmt->fetch()) {
-  ?>
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-    		<h5 class="card-title"><?php echo $row['coffeeHouse_event_title'];?></h5>
-        		<?php
-           			$date=date_create($row['coffeeHouse_event_date']);
-           			echo date_format($date,"n/d/Y") . "\n at \n";
-           			$time=date_create($row['coffeeHouse_event_time']);
-           			echo date_format($time, "h:ia");
-        		?>
-     <div class="">
-           <image class="card-img-top mx-auto d-block" src="images/<?php echo $row['coffeeHouse_event_image'];?>">
-     </div>
-        <p class="card-text"><?php echo $row['coffeeHouse_event_description'];?></p>
-      </div>
-    </div>
-  </div>
-</div>
-<?php
-    } 
-?> 
-
+    <?php
+        if($validSignon){
+    ?>
+            <section>
+                <h3>Welcome back, <?php echo $inUsername; ?>!</h3>
+                <ul>
+                    <li><a href="displayEvents.php">Display a List of Events</a></li>
+                    <li><a href="eventsForm.php">Add Event</a></li>
+                    <li><a href="logout.php">Log Off</a></li>
+                </ul>
+            </section>
+    <?php
+        }
+        else{
+   
+    ?>
+        <section>
+            <form method="post" action="login.php">
+                <h3>LOGIN FORM</h3>
+                <?php
+                if($displayError){
+                ?>
+                    <div style="color:red">Invalid username/password. Please try again.</div>
+                <?php
+                }
+                ?>
+                <p>
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" placeholder="Username">
+                </p>
+                <p>
+                    <label for="password">Password:</label>
+                    <input type="text" name="password" id="password" placeholder="Password">
+                </p>
+                <p>
+                    <input type="submit" name="submit" value="Sign In">
+                    <input type="reset">
+                </p>
+            </form> 
+        </section>
+    <?php
+        }
+    ?>
      <footer class="footer">
       <div class="container">
           <div class="row">

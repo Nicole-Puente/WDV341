@@ -10,9 +10,8 @@
  
     require_once('../database/dbConnect.php'); //confirmed connected 
 
-    $sql = "SELECT menu_item_name, menu_item_price, menu_item_description 
-            FROM wdv341_coffeehouse_menu 
-            ORDER BY menu_item_name"; //sql command
+    $sql = "SELECT menu_item_name, menu_item_price, menu_item_description
+            FROM wdv341_coffeehouse_menu"; //sql command
     $stmt = $conn->prepare($sql); //prepare statement
     $stmt->execute(); //execute 
     $stmt->setFetchMode(PDO::FETCH_ASSOC);  //return an associate array from result set
@@ -54,25 +53,29 @@
         display: block;
     }
   }
+   
     .foodItems {
         font-size: 20px;
         text-align: center;
         font-weight: bold;
-        }
+    }
+
     .itemName {
-        font-size: px;
+        font-size: 25px;
         text-align: center;
         font-weight: bold;
         }
+
     .itemPrice {
-        font-size: 15px;
-        text-align: center;
-        font-weight: bold;
-        }
-    .productDesc {
         font-size: 20px;
         text-align: center;
         font-weight: bold;
+        }
+
+    .itemDesc {
+        font-size: 15px;
+        text-align: center;
+        font-weight: normal;
         }            
 
 
@@ -112,6 +115,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contactEmailForm.php">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Login</a>
             </li>
         </ul>
     </div>
@@ -168,26 +174,20 @@
 
         <div class="col-12 my-4 text-center">
             <h3>SANDWICHES</h3>
+            <img src="images/veg_panini.jpg" class="rounded" width="300" height="225" alt="grilled vegetable panini" />
         </div>
 
         <?php
             while($row = $stmt->fetch()) {
-                echo "<div class='foodItems'>";
-                echo $row['menu_item_name'];
-                echo "</div>";
-                echo "<div>";
-                echo $row['menu_item_price'];
-                echo "</div>";
-                echo "<div>";
-                echo $row['menu_item_description'];
-                echo "</div>";
-                echo "<div>";
-                echo "</div>";
-                echo"\r\n";
-            }
-        
         ?>
-
+            <div class="foodItems">
+                <p class="itemName"><?php echo $row['menu_item_name'];?></p>
+                <p class="itemPrice">$<?php echo $row['menu_item_price'];?></p>
+                <p class="itemDesc"><?php echo $row['menu_item_description'];?></p>
+        <?php
+            } 
+        ?>
+        
         <div class="col-12 my-4 text-center">
             <h3>SOUPS</h3>
         </div>
