@@ -26,8 +26,9 @@
 <p><a href="deliverEventObject.php">9-1: PHP-JSON Event Object</p>
 <p><a href="selfPostingEventForm.php">11-1: Self Posting Input Event Form with INSERT</p>
 <p><a href="eventsForm.php">12-1: Create a form page for the events</p>
-<p><a href="EventsFolder/login.php">13-2 and 13-3 Log in Log out</p>
+<p><a href="EventsFolder/login.php">13-2 and 13-3 Log in Log out (view all events, add/delete events also available)</p>
 <p><a href="signInSignOut/login.php">14-1: Protect Dynamic Pages</p>
+<p><a href="EventsFolder/displayEvents.php">15-1: Delete Functionality</p>
 <p><a href="ContactFormProject/contactEmailForm.html">Contact Form Project </p>
 <p><a href="Portfolio/homePage.php">Portfolio (Final project, work in progress)</p>
 
