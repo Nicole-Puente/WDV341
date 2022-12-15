@@ -80,6 +80,11 @@ catch(PDOException $e){
         </ul>
     </div>
 </nav>
+
+<div class="jumbotron">
+    <h1>Administration Page</h1>
+        <p class="h6">(This is a fictitious website project for educational purposes only)</p>
+  </div>
 <?php
 echo "<h1>  " . $stmt->rowCount() . ": Event Successfully Deleted</h1>";
 ?>

@@ -1,9 +1,10 @@
 <?php
-
+    session_start();
+    
     require_once('../database/dbConnect.php'); 
 
-    $sql = "SELECT coffeeHouse_event_id, coffeeHouse_event_title, coffeeHouse_event_date, coffeeHouse_event_time, coffeeHouse_event_description
-            FROM wdv341_coffeehouse_events";       
+    $sql = "SELECT menu_item_id, menu_item_name, menu_item_price, menu_item_description
+            FROM wdv341_coffeehouse_menu";       
     $stmt = $conn->prepare($sql);                    
 
     $stmt->execute();      
@@ -17,7 +18,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Savanna's Coffeehouse View All Events Page</title>
+    <title>Savanna's Coffeehouse View All Menu Items Page</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Savanna's Coffee House Homepage">
@@ -50,7 +51,7 @@
   <a name="top"></a>
 
   <div class="jumbotron">
-    <h1>View All Events Located In Database</h1>
+    <h1>View All Menu Items Located In Database</h1>
     <a href="login.php" target="_parent"><button>Admin Page</button></a>
   </div>
 
@@ -86,17 +87,14 @@
     <?php
     while($row = $stmt->fetch()) {
         echo "<div class='center'>";
-        echo $row['coffeeHouse_event_title'];
+        echo $row['menu_item_name'];
+	  echo "<div>";
+        echo $row['menu_item_price'];
+	  echo "</div>";
         echo "<div>";
-        $date=date_create($row['coffeeHouse_event_date']);
-        echo date_format($date,"n/d/Y") . "\n at \n";
-        $time=date_create($row['coffeeHouse_event_time']);
-        echo date_format($time, "h:ia");
+        echo $row['menu_item_description'];
         echo "</div>";
-        echo "<div>";
-        echo $row['coffeeHouse_event_description'];
-        echo "</div>";
-        echo "<p> <a href='deleteEvent.php?eventId=" . $row["coffeeHouse_event_id"] . "'> Delete Event </a> </p>";
+        echo "<p> <a href='deleteMenuItem.php?menuId=" . $row["menu_item_id"] . "'> Delete Item </a> </p>";
         echo "</div>";
         echo "<br>";
         echo"\r\n";

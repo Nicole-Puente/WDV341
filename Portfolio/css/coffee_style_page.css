@@ -42,6 +42,12 @@ body{background-color: #e4d5cc;
     color: rgb(94, 63, 23);
 }
 
+ul {
+    display: inline-block;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
 .h1{
     color: #37251b;
     position: relative;

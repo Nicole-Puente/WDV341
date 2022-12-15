@@ -74,20 +74,25 @@ else{
         height:100%;
       }
 
-  @media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-  }
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:first-child) {display: none;}
+            .topnav a.icon {
+            float: right;
+            display: block;
+        }
+        }
 
-  .productImage img{
-      display:block;
-      margin-left:auto;
-      margin-right:auto;
-      width:100%;
-      height:auto}
+      .center {
+        text-align: center;
+        }
+      
+      ul.no-bullets {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        }  
+
+
   </style>
 
   </head>
@@ -135,11 +140,13 @@ else{
             <h1>Admin Page</h1>
             <p class="h6">(This is a fictitious website project for educational purposes only)</p>
         </div>
-            <section>
+            <section class="center">
                 <h3>Welcome back, <?php echo $inUsername; ?>!</h3>
-                <ul>
-                    <li><a href="displayEvents.php">Display a List of Events</a></li>
-                    <li><a href="addNewEvent.php">Add Event</a></li>
+                <ul class="no-bullets">
+                    <li><a href="displayEvents.php">Display a List of Upcoming Events</a></li>
+                    <li><a href="addNewEvent.php">Add a New Event</a></li>
+                    <li><a href="displayMenuItems.php">Display a List of Menu Items</a></li>
+                    <li><a href="addMenuItem.php">Add a New Menu Item</a></li>                    
                     <li><a href="logout.php">Log Off</a></li>
                 </ul>
             </section>
@@ -153,7 +160,7 @@ else{
                 <?php
                 if($displayError){
                 ?>
-                    <div style="color:red">Invalid username/password. Please try again.</div>
+                    <div style="color:red" text-align: center>Invalid username/password. Please try again.</div>
                 <?php
                 }
                 ?>
@@ -181,7 +188,6 @@ else{
             <div class="row">
                 <div class="col-sm-6 offset-sm-3">
                     <p class="text-center footer-text"> Copyright &copy; <?php echo $year;?> All Rights Reserved. Savanna's Coffee House.</p>
-                    <p style="text-align:center"><a href="#top"> Back to top of page</a></p>
             </div>
         </div>
 </footer>

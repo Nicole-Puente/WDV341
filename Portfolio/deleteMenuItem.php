@@ -1,23 +1,26 @@
 <?php
-
-    require_once('../database/dbConnect.php'); 
-
-    $sql = "SELECT coffeeHouse_event_id, coffeeHouse_event_title, coffeeHouse_event_date, coffeeHouse_event_time, coffeeHouse_event_description
-            FROM wdv341_coffeehouse_events";       
-    $stmt = $conn->prepare($sql);                    
-
-    $stmt->execute();      
-
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);  
-
     $year = date("Y"); 
 
+    $deleteId = $_GET['menuId'];
+
+try {
+    require_once('../database/dbConnect.php'); 
+
+    $sql = "DELETE FROM wdv341_coffeehouse_menu WHERE menu_item_id =:menuId";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':menuId', $deleteId);
+    $stmt->execute();
+
+}
+
+catch(PDOException $e){
+    //echo "Errors: " . $e->getMessage();
+    $numDeletes= -1;
+}
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Savanna's Coffeehouse View All Events Page</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Savanna's Coffee House Homepage">
@@ -28,9 +31,10 @@
 			 <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
        <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
        <link rel="stylesheet" href="css/coffee_style_page.css">
-
-  <style>
-      .jumbotron{
+    <title>Document</title>
+</head>
+<style>
+	.jumbotron{
         background-color: #dbc1ac;
         text-align: center;
         font-family: 'Karla', sans-serif;
@@ -40,19 +44,12 @@
         margin: auto;
         width: 60%;
         padding: 10px;
-      }
-
-
-  </style>
-
-  </head>
+}
+       
+</style>
 <body>
-  <a name="top"></a>
 
-  <div class="jumbotron">
-    <h1>View All Events Located In Database</h1>
-    <a href="login.php" target="_parent"><button>Admin Page</button></a>
-  </div>
+  <a name="top"></a>
 
   <nav id="main-nav" class="navbar navbar-expand-sm navbar-dark py-0 fixed-top">
     <a class="navbar-brand" href="#"></a>
@@ -83,26 +80,19 @@
     </div>
 </nav>
 
-    <?php
-    while($row = $stmt->fetch()) {
-        echo "<div class='center'>";
-        echo $row['coffeeHouse_event_title'];
-        echo "<div>";
-        $date=date_create($row['coffeeHouse_event_date']);
-        echo date_format($date,"n/d/Y") . "\n at \n";
-        $time=date_create($row['coffeeHouse_event_time']);
-        echo date_format($time, "h:ia");
-        echo "</div>";
-        echo "<div>";
-        echo $row['coffeeHouse_event_description'];
-        echo "</div>";
-        echo "<p> <a href='deleteEvent.php?eventId=" . $row["coffeeHouse_event_id"] . "'> Delete Event </a> </p>";
-        echo "</div>";
-        echo "<br>";
-        echo"\r\n";
-    }
-        
-    ?>
+<div class="jumbotron">
+    <h1>Administration Page</h1>
+        <p class="h6">(This is a fictitious website project for educational purposes only)</p>
+  </div>
+<?php
+echo "<h1>  " . $stmt->rowCount() . ": Item Successfully Deleted</h1>";
+?>
+<hr>
+
+    <div class="row justify-content-center btn btn-outline-secondary">
+        <a id="return" href="displayMenuItems.php">Return to Menu Item List</a>
+    </div>
+
 
 <footer class="footer">
         <div class="container">

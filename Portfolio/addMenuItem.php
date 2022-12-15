@@ -4,27 +4,20 @@ $dataProcessed = false;   //at the beginning the data has NOT been processed
 $year = date("Y"); 
 if(isset($_POST["submit"])){
 
-    $eventTitle = $_POST['coffeeHouse_event_title'];
-    $eventDate = $_POST['coffeeHouse_event_date'];
-    $eventTime = $_POST['coffeeHouse_event_time'];
-    $eventDescription = $_POST['coffeeHouse_event_description'];
-
-
-
-    $eventDate = date('Y-m-d', strtotime($eventDate));
-    $eventTime = date('H:i', strtotime($eventTime));
+    $itemName = $_POST['menu_item_name'];
+    $itemPrice = $_POST['menu_item_price'];
+    $itemDescription = $_POST['menu_item_description'];
 
     require_once('../database/dbConnect.php'); //connect to database
 
-    $sql = "INSERT INTO wdv341_coffeehouse_events (coffeeHouse_event_title, coffeeHouse_event_date, coffeeHouse_event_time, coffeeHouse_event_description)
-    VALUES (:eventTitle, :eventDate, :eventTime, :eventDescription)";
+    $sql = "INSERT INTO wdv341_coffeehouse_menu (menu_item_name, menu_item_price, menu_item_description)
+    VALUES (:itemName, :itemPrice, :itemDescription)";
 
     $stmt = $conn->prepare($sql);
 
-    $stmt->bindParam(':eventTitle',$eventTitle);
-    $stmt->bindParam(':eventDate',$eventDate);
-    $stmt->bindParam(':eventTime',$eventTime);
-    $stmt->bindParam(':eventDescription',$eventDescription);   
+    $stmt->bindParam(':itemName',$itemName);
+    $stmt->bindParam(':itemPrice',$itemPrice);
+    $stmt->bindParam(':itemDescription',$itemDescription);   
 
     $stmt->execute();   
     
@@ -37,7 +30,7 @@ if(isset($_POST["submit"])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Savanna's Coffeehouse View All Events Page</title>
+    <title>Savanna's Coffeehouse View All Menu Items Page</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Savanna's Coffee House Homepage">
@@ -119,7 +112,7 @@ if(isset($_POST["submit"])){
         //display confirmation message section
         ?>
             <section>
-                <h3>Thank you for entering your event information.</h3>
+                <h3>Thank you for entering your menu item.</h3>
                 <a href="login.php" target="_parent"><button>Admin Page</button></a>
             </section>
         <?php  
@@ -128,24 +121,20 @@ if(isset($_POST["submit"])){
         //display the form so the user can input data and submit it for processing
         ?>
             <section>
-                <form id="event-form" name="event_form" method="post" action="addNewEvent.php" >
+                <form id="event-form" name="event_form" method="post" action="addMenuItem.php" >
 
-                    <p>Please enter the event information you would like to add below:</p>
+                    <p>Please enter the menu information you would like to add below:</p>
                     <p>
-                        <label for="event-title">Event Title:</label> 
-                        <input type="text" name="coffeeHouse_event_title" id="event-title" />
+                        <label for="item-name">Item Name:</label> 
+                        <input type="text" name="menu_item_name" id="item-name" />
                     </p>
                     <p>
-                        <label for="event-date">Event Date:</label> 
-                        <input type="text" name="coffeeHouse_event_date" id="event-date" />
+                        <label for="item-price">Item Price:</label> 
+                        <input type="text" name="menu_item_price" id="item-price" />
                     </p>
                     <p>
-                        <label for="event-time">Event Time:</label> 
-                        <input type="text" name="coffeeHouse_event_time" id="event-time" />
-                    </p>
-                    <p>
-                        <label for="event-description">Event Description:</label> 
-                        <input type="text" name="coffeeHouse_event_description" id="event-description" />
+                        <label for="item-description">Item Description:</label> 
+                        <input type="text" name="menu_item_description" id="item-description" />
                     </p>
                             
                     <p>
