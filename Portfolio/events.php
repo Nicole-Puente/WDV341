@@ -1,16 +1,9 @@
 <?php 
-    /* Algorith to do a PDO prepared statement:
-        1. Connect to the database
-        2. Write SQL command
-        3. Prepare your statement
-        4. Bind parameters, if any
-        5. Execute the statement
-        5. Get the data from the result set within the statement object
-    */
+
  
     require_once('../database/dbConnect.php'); //confirmed connected 
 
-    $sql = "SELECT coffeeHouse_event_title, coffeeHouse_event_image, coffeeHouse_event_date, coffeeHouse_event_time, coffeeHouse_event_description
+    $sql = "SELECT coffeeHouse_event_title, coffeeHouse_event_date, coffeeHouse_event_time, coffeeHouse_event_description
             FROM wdv341_coffeehouse_events"; //sql command
     $stmt = $conn->prepare($sql); //prepare statement
     $stmt->execute(); //execute 
@@ -54,12 +47,15 @@
     }
   }
 
-  .productImage img{
-      display:block;
-      margin-left:auto;
-      margin-right:auto;
-      width:100%;
-      height:auto}
+  .center {
+        text-align: center;
+        border: 3px solid #37251b;
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+}
+
+
   </style>
 
   </head>
@@ -103,32 +99,25 @@
     </div>
 </nav>
 
-
 <?php
-  while($row = $stmt->fetch()) {
-  ?>
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-    		<h5 class="card-title"><?php echo $row['coffeeHouse_event_title'];?></h5>
-        		<?php
-           			$date=date_create($row['coffeeHouse_event_date']);
-           			echo date_format($date,"n/d/Y") . "\n at \n";
-           			$time=date_create($row['coffeeHouse_event_time']);
-           			echo date_format($time, "h:ia");
-        		?>
-     <div class="">
-           <image class="card-img-top mx-auto d-block" src="images/<?php echo $row['coffeeHouse_event_image'];?>">
-     </div>
-        <p class="card-text"><?php echo $row['coffeeHouse_event_description'];?></p>
-      </div>
-    </div>
-  </div>
-</div>
-<?php
-    } 
-?> 
+    while($row = $stmt->fetch()) {
+        echo "<div class='center'>";
+        echo $row['coffeeHouse_event_title'];
+        echo "<div>";
+        $date=date_create($row['coffeeHouse_event_date']);
+        echo date_format($date,"n/d/Y") . "\n at \n";
+        $time=date_create($row['coffeeHouse_event_time']);
+        echo date_format($time, "h:ia");
+        echo "</div>";
+        echo "<div>";
+        echo $row['coffeeHouse_event_description'];
+        echo "</div>";
+        echo "</div>";
+        echo "<br>";
+        echo"\r\n";
+    }
+        
+    ?>
 
 <footer class="footer">
         <div class="container">

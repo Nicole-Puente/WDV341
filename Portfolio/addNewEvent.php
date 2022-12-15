@@ -10,6 +10,7 @@ if(isset($_POST["submit"])){
     $eventDescription = $_POST['coffeeHouse_event_description'];
 
 
+
     $eventDate = date('Y-m-d', strtotime($eventDate));
     $eventTime = date('H:i', strtotime($eventTime));
 
@@ -28,7 +29,9 @@ if(isset($_POST["submit"])){
     $stmt->execute();   
     
     $dataProcessed = true;
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -124,7 +127,7 @@ if(isset($_POST["submit"])){
         //display the form so the user can input data and submit it for processing
         ?>
             <section>
-                <form id="event-form" name="event_form" method="post" action="addNewEvent.php" enctype="multipart/form-data">
+                <form id="event-form" name="event_form" method="post" action="addNewEvent.php" >
 
                     <p>Please enter the event information you would like to add below:</p>
                     <p>
@@ -143,10 +146,7 @@ if(isset($_POST["submit"])){
                         <label for="event-description">Event Description:</label> 
                         <input type="text" name="coffeeHouse_event_description" id="event-description" />
                     </p>
-                    <p>
-                        <label for="event-image">Event image:</label> 
-                        <input type="file" name="coffeeHouse_event_image" id="event-image"  />
-                    </p>                                        
+                            
                     <p>
                         <input type="submit" name="submit" id="button" value="Submit" />
                         <input type="reset" name="button2" id="button2" value="Clear Form" />

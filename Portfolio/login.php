@@ -139,7 +139,7 @@ else{
                 <h3>Welcome back, <?php echo $inUsername; ?>!</h3>
                 <ul>
                     <li><a href="displayEvents.php">Display a List of Events</a></li>
-                    <li><a href="eventsForm.php">Add Event</a></li>
+                    <li><a href="addNewEvent.php">Add Event</a></li>
                     <li><a href="logout.php">Log Off</a></li>
                 </ul>
             </section>
