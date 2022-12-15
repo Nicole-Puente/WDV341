@@ -30,7 +30,7 @@
 <p><a href="signInSignOut/login.php">14-1: Protect Dynamic Pages</p>
 <p><a href="EventsFolder/displayEvents.php">15-1: Delete Functionality</p>
 <p><a href="ContactFormProject/contactEmailForm.html">Contact Form Project </p>
-<p><a href="Portfolio/homePage.php">Portfolio (Final project, work in progress)</p>
+<p><a href="Portfolio/homePage.php">Portfolio (Final project)</p>
 
 
 
