@@ -10,7 +10,7 @@
  
     require_once('../database/dbConnect.php'); //connect to database
 
-    $sql = "SELECT events_name, events_description, events_presenter, events_date FROM wdv341_events ORDER BY events_name";       // puts the sql command in a variable. 
+    $sql = "SELECT events_id, events_name, events_description, events_presenter, events_date FROM wdv341_events ORDER BY events_name";       // puts the sql command in a variable. 
 
     $stmt = $conn->prepare($sql);                         // prepare your statement   
 
@@ -56,6 +56,7 @@
         echo "<div>";
         $date=date_create($row['events_date']);
         echo date_format($date,"l n/d/Y");
+        echo "<p> <a href='deleteEvent.php?eventId=" . $row["events_id"] . "'> Delete Event </a> </p>";
         echo "</div>";
         echo "<br>";
         echo"\r\n";
