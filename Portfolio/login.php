@@ -92,6 +92,12 @@ else{
         padding: 0;
         }  
 
+     ul {
+        display: table; 
+        margin: 0 auto;
+        text-align: left;
+    }  
+
 
   </style>
 
